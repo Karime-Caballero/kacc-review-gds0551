@@ -1,0 +1,60 @@
+<form [formGroup]="regisForm">
+    <p-card header="Ingresar" [style]="{ width: '360px' }">
+      <div class="field">
+        <label for="text">Nombre</label>
+        <input
+          type="text"
+          pInputText
+          class="w-full"
+          placeholder="Ingresar un Nombre"
+          formControlName="name"
+        />
+  
+        <small *ngIf="name.invalid && (name.dirty || name.touched)" class="block p-error">
+          <div *ngIf="name.hasError('required')">El nombre es obligatorio</div>
+        </small>
+      </div>
+  
+      <div class="field">
+        <label for="email">Correo Electronico</label>
+        <input
+          type="text"
+          pInputText
+          class="w-full"
+          placeholder="Ingresar Email"
+          formControlName="email"
+        />
+  
+        <small *ngIf="email.invalid && (email.dirty || email.touched)" class="block p-error">
+          <div *ngIf="email.hasError('required')">Requiere un correo</div>
+          <div *ngIf="email.hasError('email')">Correo incorrecto</div>
+        </small>
+      </div>
+  
+      <div class="field">
+        <label for="password">Contraseña</label>
+        <p-password [toggleMask]="true" formControlName="password"></p-password>
+  
+        <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
+          <div *ngIf="password.hasError('required')">Requiere una contraseña</div>
+        </small>
+      </div>
+  
+      <div class="field">
+          <label for="password">Repetir Contraseña</label>
+          <p-password [toggleMask]="true" formControlName="repPassword"></p-password>
+    
+          <small *ngIf="password.invalid && (password.dirty || password.touched)" class="block p-error">
+            <div *ngIf="password.hasError('required')">Contraseña no igual</div>
+          </small>
+        </div>
+  
+      <div class="field">
+        <p-button
+          label="Registrar"
+          class="w-full"
+          [disabled]="regisForm.invalid"
+        ></p-button>
+      </div>
+    </p-card>
+  </form>
