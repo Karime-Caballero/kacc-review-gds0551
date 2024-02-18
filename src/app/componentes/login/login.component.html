@@ -7,11 +7,12 @@
           pInputText
           class="w-full"
           placeholder="Ingresar Email"
+          name="email"
           formControlName="email"
         />
   
         <small *ngIf="email.invalid && (email.dirty || email.touched)" class="block p-error">
-          <div *ngIf="email.hasError('required')">Requiere un correo</div>
+          <div *ngIf="email.errors?.['required']">Requiere un correo</div>
           <div *ngIf="email.hasError('email')">Correo incorrecto</div>
         </small>
       </div>

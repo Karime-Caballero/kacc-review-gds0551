@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
-import { FormBuilder, Validators } from '@angular/forms';
+import { FormBuilder, Validators, FormGroup } from '@angular/forms';
+import { passwordMatchValidator} from '../../shared/password-match.directives';
 
 @Component({
   selector: 'app-register',
@@ -7,28 +8,33 @@ import { FormBuilder, Validators } from '@angular/forms';
   styleUrl: './register.component.css'
 })
 export class RegisterComponent {
-  regisForm = this.fb.group({
-    name: ['', Validators.required],
-    email: ['', [Validators.required, Validators.email]],
-    password: ['', [Validators.required]],
-    repPassword: ['', Validators.required]
-  })
+  registerForm: FormGroup; // Asegúrate de importar FormGroup desde '@angular/forms'
 
-  constructor(private fb: FormBuilder){}
-
-  get name(){
-    return this.regisForm.controls['name']
+  constructor(private fb: FormBuilder) {
+    this.registerForm = this.fb.group({
+      fullname: ['', [Validators.required, Validators.pattern(/^[a-zA-Z]+(?: [a-zA-Z]+)*$/)]],
+      email: ['', [Validators.required, Validators.email]],
+      password: ['', Validators.required],
+      confirmPassword: ['', Validators.required]
+    }, {
+      validators: passwordMatchValidator // Aquí aplicamos el validador personalizado a nivel de formulario
+    });
   }
 
-  get email(){
-    return this.regisForm.controls['email']
+  // Métodos getter para acceder a los controles del formulario
+  get fullname() {
+    return this.registerForm.controls['fullname'];
   }
 
-  get password(){
-    return this.regisForm.controls['password']
+  get email() {
+    return this.registerForm.controls['email'];
   }
 
-  get repPassword(){
-    return this.regisForm.controls['repPassword']
+  get password() {
+    return this.registerForm.controls['password'];
+  }
+
+  get confirmPassword() {
+    return this.registerForm.controls['confirmPassword'];
   }
 }
