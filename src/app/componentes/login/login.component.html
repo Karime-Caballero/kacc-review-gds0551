@@ -1,4 +1,4 @@
-<form [formGroup]="loginForm">
+<form [formGroup]="loginForm" (ngSubmit)="login()">
     <p-card header="Ingresar" [style]="{ width: '360px' }">
       <div class="field">
         <label for="email">Correo Electronico</label>
@@ -31,6 +31,7 @@
           label="Ingresar"
           class="w-full"
           [disabled]="loginForm.invalid"
+          type="submit"
         ></p-button>
       </div>
   

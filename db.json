@@ -1,0 +1,28 @@
+{
+  "users": [
+    {
+      "id": "d958",
+      "fullname": "Alejandra Caballero Campos",
+      "email": "karimec686@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "98be",
+      "fullname": "KARI",
+      "email": "karimec686@gmail.com",
+      "password": "123"
+    },
+    {
+      "id": "a99e",
+      "fullname": "Carmen Caballero Campos",
+      "email": "carmencabalero1602@gmail.com",
+      "password": "carmen1602"
+    },
+    {
+      "id": "ebac",
+      "fullname": "Edith",
+      "email": "edithcamposmtz02@gmail.com",
+      "password": "carkari"
+    }
+  ]
+}

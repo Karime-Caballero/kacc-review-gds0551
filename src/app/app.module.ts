@@ -12,6 +12,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { HeaderComponent } from './componentes/header/header.component';
 import { FooterComponent } from './componentes/footer/footer.component';
+import { MessageService } from 'primeng/api';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { FooterComponent } from './componentes/footer/footer.component';
 
   ],
   providers: [
+    MessageService,
     provideClientHydration()
   ],
   bootstrap: [AppComponent]
